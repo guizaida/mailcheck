@@ -86,9 +86,12 @@ def getEmails():
             
 def sendmessage(message):
     #透過line notify發送通知,避免誤刪重要郵件
-    headers = {"Authorization": "Bearer " + 'Tl5u7KtH931CandhQiOOaXQQbwORH8I7BPKeb7VJNbI'}
+    with open ('line_notify_token.txt') as f:
+        apikey = f.read()
+    headers = {"Authorization": "Bearer " + apikey}
     param = {'message': '\n{0}'.format(message)}
     r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = param)
 
 if __name__ == '__main__':
-    getEmails()
+    # getEmails()
+    sendmessage('')
