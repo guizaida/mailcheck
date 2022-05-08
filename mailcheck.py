@@ -93,5 +93,4 @@ def sendmessage(message):
     r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = param)
 
 if __name__ == '__main__':
-    # getEmails()
-    sendmessage('')
+     getEmails()
